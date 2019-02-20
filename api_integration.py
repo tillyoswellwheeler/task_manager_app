@@ -57,11 +57,11 @@ def update_task(request):
         task_id = task['id']
         title = task['title']
         description = task['description']
-        date_created = task['date_created']
+        # date_created = task['date_created']
         date_due = task['date_due']
         status = task['status']
         priority = task['priority']
-        c.execute('UPDATE tasks SET title = title, description = description, data_due = date_due, status = status, priority = priority WHERE id = task_id')
+        c.execute('UPDATE tasks SET title = ?, description = ?, date_due = ?, status = ?, priority = ? WHERE id = ?', (title, description, date_due, status, priority, task_id))
         conn.commit()
 
 def select_all():
@@ -89,9 +89,10 @@ def add_task(request):
 #     conn.close()
 
 
-# request = [{"title":"TESTSSSS","description":"Skye needs immunisations.","date_due":"26-02-2019","status":"to do","priority":"high",}]
-#
-#
-# add_task(request)
+# request = [{"id":"1", "title":"TESTIOTRUGJ","description":"Skye needs immunisations.","date_due":"26-02-2019","status":"to do","priority":"high",}]
+# #
+# #
+# # add_task(request)
+# update_task(request)
 
 # print(select_all())
