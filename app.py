@@ -16,12 +16,15 @@ def home():
         return render_template("home.html", title="Homepage", **locals())
 
     if request.method == 'POST':
-        form_data = request.form
+        form_data = request.form.to_dict()
+    #    db_api.add_task(form_data)
+
+
 #        description = form_data["description"]
 #        title = form_data["title"]
 #            due_date = form_data["due_date"]
 #            due_created = form_data["date_created"]
-        post_db_response = requests.post("http://127.0.0.1:5000/tasks", data=form_data)
+#        post_db_response = requests.post("http://127.0.0.1:5000/tasks", data=json_data)
 
 #        return jsonify({
 #        'json_data': post_db_response
