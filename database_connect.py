@@ -6,52 +6,48 @@
 
 
 import json
+import sqlite3
 
 
-def getdb():
+#---------------------------------------------#
+#Connect to database
+#---------------------------------------------#
+
+def get_db():
     try:
-        conn = psycopg2.connect(user="matildaoswell-wheeler",
-                                password="",
-                                host="127.0.0.1",
-                                port="5432",
-                                database="task_manager")
-        cursor = conn.cursor()
-        # Print PostgreSQL Connection properties
-        print(conn.get_dsn_parameters(), "\n")
-        # Print PostgreSQL version
-        cursor.execute("SELECT version();")
-        record = cursor.fetchone()
-        print("You are connected to - ", record, "\n")
-        return cursor
+        conn = sqlite3.connect('task_manager.db')
+        c = conn.cursor()
+        return conn, c
     except:
         return False
-# try:
 
+#---------------------------------------------#
+# Interacting with database
+#---------------------------------------------#
 
-# except (Exception, psycopg2.Error) as error :
-#     print ("Error while connecting to PostgreSQL", error)
+########
+# def add_task():
+#     cursor, conn = get_db()
+#     with cursor.cursor() as cursor:
+#         # Create a new record
+#         sql = "INSERT INTO `tasks` (`title`, `description`, 'date_created', 'date_due', 'status', 'priority') VALUES (?, ?, ?, ?, ?, ?)"
+#         cursor.execute(sql)
 #
-# finally:
-#     #closing database connection.
-#         if conn:
-#             cursor.close()
-#             conn.close()
-#             print("PostgreSQL connection is closed")
-
-
-########
-def add_task():
-    cursor, conn = get_db()
-    with cursor.cursor() as cursor:
-        # Create a new record
-        sql = "INSERT INTO `tasks` (`title`, `description`, 'date_created', 'date_due', 'status', 'priority') VALUES (?, ?, ?, ?, ?, ?)"
-        cursor.execute(sql)
-
-    # connection is not autocommit by default. So you must commit to save
-    # your changes.
-    conn.commit()
+#     # connection is not autocommit by default. So you must commit to save
+#     # your changes.
+#     conn.commit()
 ########
 
+def select_all():
+    conn, c = get_db()
+    query = "SELECT * FROM tasks"
+    results = c.execute(query)
+    tasks = []
+    for row in results:
+        for key in c.description:
+            tasks.append({key[0]:value for value in row})
+    conn.close()
 
-cursor.close()
-conn.close()
+    return tasks
+
+print(select_all())
