@@ -38,17 +38,27 @@ def get_db():
 #     conn.commit()
 ########
 
+# def select_all():
+#     conn, c = get_db()
+#     query = "SELECT * FROM tasks"
+#     results = c.execute(query)
+#     tasks = []
+#     for row in results:
+#         for key in c.description:
+#             tasks.append({key[0]:value for value in row})
+#     conn.close()
+#
+#     return tasks
+
 def select_all():
     conn, c = get_db()
     query = "SELECT * FROM tasks"
     results = c.execute(query)
     tasks = []
     for row in results:
-        for key in c.description:
+        for col in c.description:
             tasks.append({key[0]:value for value in row})
     conn.close()
-
-    return tasks
 
  def add_task(request):
      conn, c = get_db()
@@ -63,8 +73,8 @@ def select_all():
         c.execute('INSERT INTO tasks(title, description, date_created, date_due, status, priority) VALUES (?, ?, ?, ?, ?, ?)', (title, description, date_created, date_due, status, priority))
         conn.commit()
 #     conn.close()
-     
 
 
 
-print(select_all())
+
+# print(select_all())
