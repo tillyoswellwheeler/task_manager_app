@@ -50,4 +50,21 @@ def select_all():
 
     return tasks
 
+ def add_task(request):
+     conn, c = get_db()
+     for i in range(len(request)):
+        task = request[i]
+        title = task['title']
+        description = task['description']
+        date_created = task['date_created']
+        date_due = task['date_due']
+        status = task['status']
+        priority = task['priority']
+        c.execute('INSERT INTO tasks(title, description, date_created, date_due, status, priority) VALUES (?, ?, ?, ?, ?, ?)', (title, description, date_created, date_due, status, priority))
+        conn.commit()
+#     conn.close()
+     
+
+
+
 print(select_all())
