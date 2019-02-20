@@ -3,9 +3,9 @@
 {% block content %}
 
 <body>
-	<img src="images/taskbkgd.jpg">
+	<img src="static/images/taskbkgd.jpg">
 	<nav class="navbar fixed-top navbar-expand-lg navbar-light bg light">
-		<a href="index.html"><img class="logo" src="images/task_logo.jpg" alt="Task Logo." /></a>
+		<a href="index.html"><img class="logo" src="static/images/task_logo.jpg" alt="Logo." /></a>
 		<h1 class="websiteh1">Task Management App</h1>
 
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,6 +14,12 @@
 
 		<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
 			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link active" href="index.html">View Tasks</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="addtask.html">Add a Task</a>
+				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="">Login</a>
 				</li>
@@ -25,12 +31,24 @@
 	</nav>
 
 	<main class="taskapp_background">
+
+		<section id="add_a_task_image">
+			<a href="{{ url_for('new_task') }}"><img class="addtask float-right" src="static/images/plus_image.png" alt="Adding task." /></a>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm col-md col-lg col-xl">
+					</div>
+				</div>
+			</div>
+		</section>
+
+
 		<section id="taskapp_page_heading">
-			<p class="tasks_todo">Task - To Do:</p>
+			<p class="tasks_todo">My Tasks - To Do:</p>
 
 			<div class="container">
 				<div class="row">
-					<div class="col-md">
+					<div class="col-sm col-md col-lg col-xl">
 					</div>
 				</div>
 			</div>
@@ -38,8 +56,8 @@
 
 
 		<div class="sortby row">
-			<p class="col-sm-1">Sort by:</p>
-			<div class="col-sm-9">
+			<p class="col-sm-1 col-md-1 col-lg-1 col-xl-1">Sort by:</p>
+			<div class="col-sm-9 col-md-9 col-lg-9 col-xl-9">
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="radio" name="sort-radio" id="sort-by-priority-radio" value="1" checked="checked">
 					<label class="form-check-label" for="sort-by-priority-radio">Priority</label>
@@ -54,43 +72,31 @@
 		<section id="tasks_display">
 			<div class="container">
 
-		{#}		<p>All JSON data: {{ db_api_response }}
-					api data: {{ api_data }}</p> #}
+				<div class="scrolling-cards">
+					<ul id="cards-unstyled">
 
-					<p>
-						form data: {{ form_data }}
-						</p>
-
-
-
-					<div class="scrolling-cards">
-						<ul id="cards-unstyled">
-
-
-							<div class="row">
-								{% for dict in api_data %}
-								<div class="col-sm-6">
-									<div class="card">
-										<div class="card-body">
-											<div class="card-header">
-												<h5 class="card-title">Title: {{ dict['title'] }}</h5>
-											</div>
-											<p class="card-description">Description. {{ dict['description'] }}</p>
-											<p class="card-date-created">Date created: {{ dict['date_created'] }}</p>
-											<p class="card-date-due">Due Date: {{ dict['date_due'] }}</p>
-											<button type="button" button class="taskcomplete btn btn-primary btn-lg">Task Complete</button>
-											<a href=""><img class="pencil" src="images/pencil_image.png" alt="Pencil image to edit task." /></a>
+						<div class="row">
+							{% for dict in api_data %}
+							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+								<div class="card">
+									<div class="card-body">
+										<div class="card-header">
+											<h5 class="card-title">Title: {{ dict['title'] }}</h5>
 										</div>
+										<p class="card-description">Description. {{ dict['description'] }}.</p>
+										<p class="card-date-created">Date created: {{ dict['date_created'] }}</p>
+										<p class="card-date-due">Due Date: {{ dict['date_due'] }}</p>
+										<button type="button" button class="taskcomplete btn btn-primary btn-lg">Task Complete</button>
+										<a href=""><img class="pencil float-right" src="static/images/pencil_image.png" alt="Pencil image to edit task." /></a>
 									</div>
 								</div>
-								{% endfor %}
-							</div>
 
-					</div>
+							</div>
+							{% endfor %}
 					</ul>
-			</div>
+				</div>
+
 			</div>
 		</section>
 	</main>
-
 	{% endblock content %}

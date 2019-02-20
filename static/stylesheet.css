@@ -34,7 +34,7 @@ padding-left: 150px;
 
 /** image**/
 .addtask {
-padding-top: 200px;
+padding-top: 100px;
 padding-right: 20px;
 width: 100px;
 }
@@ -45,11 +45,12 @@ form {
   padding: 30px;
   margin-top: 100px;
   margin-bottom: 100px;
+  margin-left: 220px;
 }
 
 h1.add_task_h1 {
 font-size: 30px;
-padding-left: 140px;
+padding-left: 180px;
 padding-bottom: 10px;
 }
 
@@ -68,7 +69,7 @@ text-align: center;
 border-radius: 10px;
 }
 
-/***************************PAGE HEADING********************************/
+/***********************MY TASKS PAGE HEADING********************************/
 #taskapp_page_heading {
 padding-top: 170px;
 padding-left: 500px;
