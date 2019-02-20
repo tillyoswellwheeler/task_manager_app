@@ -83,8 +83,8 @@ def add_task(request):
         date_created = str(date.today())
         date_due = task['date_due']
         status = task['status']
-        priority = task['priority']
-        c.execute('INSERT INTO tasks(title, description, date_created, date_due, status, priority) VALUES (?, ?, ?, ?, ?, ?)', (title, description, date_created, date_due, status, priority))
+        priority = task['priority-radio']
+        c.execute('INSERT INTO tasks(title, description, date_created, date_due, status, priority-radio) VALUES (?, ?, ?, ?, ?, ?)', (title, description, date_created, date_due, status, priority))
     conn.commit()
 #     conn.close()
 
