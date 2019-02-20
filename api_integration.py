@@ -7,7 +7,7 @@
 
 import json
 import sqlite3
-
+from datetime import date
 
 #---------------------------------------------#
 #Connect to database
@@ -60,21 +60,24 @@ def select_all():
             tasks.append({key[0]:value for value in row})
     conn.close()
 
- def add_task(request):
-     conn, c = get_db()
-     for i in range(len(request)):
+def add_task(request):
+    conn, c = get_db()
+    for i in range(len(request)):
         task = request[i]
         title = task['title']
         description = task['description']
-        date_created = task['date_created']
+        date_created = str(date.today())
         date_due = task['date_due']
         status = task['status']
         priority = task['priority']
         c.execute('INSERT INTO tasks(title, description, date_created, date_due, status, priority) VALUES (?, ?, ?, ?, ?, ?)', (title, description, date_created, date_due, status, priority))
-        conn.commit()
+    conn.commit()
 #     conn.close()
 
 
-
+# request = [{"title":"TESTSSSS","description":"Skye needs immunisations.","date_due":"26-02-2019","status":"to do","priority":"high",}]
+#
+#
+# add_task(request)
 
 # print(select_all())
