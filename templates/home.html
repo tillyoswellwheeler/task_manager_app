@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<body>
+	<img src="images/taskbkgd.jpg">
+	<nav class="navbar fixed-top navbar-expand-lg navbar-light bg light">
+		<a href="index.html"><img class="logo" src="images/task_logo.jpg" alt="Task Logo." /></a>
+		<h1 class="websiteh1">Task Management App</h1>
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="">Login</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="">Sign up</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<main class="taskapp_background">
+		<section id="taskapp_page_heading">
+			<p class="tasks_todo">Task - To Do:</p>
+
+			<div class="container">
+				<div class="row">
+					<div class="col-md">
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<div class="sortby row">
+			<p class="col-sm-1">Sort by:</p>
+			<div class="col-sm-9">
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="sort-radio" id="sort-by-priority-radio" value="1" checked="checked">
+					<label class="form-check-label" for="sort-by-priority-radio">Priority</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="sort-radio" id="sort-by-duedate-radio" value="2">
+					<label class="form-check-label" for="sort-by-duedate-radio">Due Date</label>
+				</div>
+			</div>
+		</div>
+
+		<section id="tasks_display">
+			<div class="container">
+
+		{#}		<p>All JSON data: {{ db_api_response }}
+					api data: {{ api_data }}</p> #}
+
+					<p>
+						form data: {{ form_data }}
+						</p>
+
+
+
+					<div class="scrolling-cards">
+						<ul id="cards-unstyled">
+
+
+							<div class="row">
+								{% for dict in api_data %}
+								<div class="col-sm-6">
+									<div class="card">
+										<div class="card-body">
+											<div class="card-header">
+												<h5 class="card-title">Title: {{ dict['title'] }}</h5>
+											</div>
+											<p class="card-description">Description. {{ dict['description'] }}</p>
+											<p class="card-date-created">Date created: {{ dict['date_created'] }}</p>
+											<p class="card-date-due">Due Date: {{ dict['date_due'] }}</p>
+											<button type="button" button class="taskcomplete btn btn-primary btn-lg">Task Complete</button>
+											<a href=""><img class="pencil" src="images/pencil_image.png" alt="Pencil image to edit task." /></a>
+										</div>
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+
+					</div>
+					</ul>
+			</div>
+			</div>
+		</section>
+	</main>
+
+	{% endblock content %}

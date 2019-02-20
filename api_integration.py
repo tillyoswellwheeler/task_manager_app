@@ -50,15 +50,29 @@ def get_db():
 #
 #     return tasks
 
+def update_task(request):
+    conn, c = get_db()
+    for i in range(len(request)):
+        task = request[i]
+        task_id = task['id']
+        title = task['title']
+        description = task['description']
+        date_created = task['date_created']
+        date_due = task['date_due']
+        status = task['status']
+        priority = task['priority']
+        c.execute('UPDATE tasks SET title = title, description = description, data_due = date_due, status = status, priority = priority WHERE id = task_id')
+        conn.commit()
+
 def select_all():
     conn, c = get_db()
     query = "SELECT * FROM tasks"
     results = c.execute(query)
     tasks = []
     for row in results:
-        for col in c.description:
-            tasks.append({key[0]:value for value in row})
+        tasks.append({"id":row[0],"title":row[1],"description":row[2],"date_created":row[3],"date_due":row[4],"status":row[5],"priority":row[6]})
     conn.close()
+    return tasks
 
 def add_task(request):
     conn, c = get_db()
