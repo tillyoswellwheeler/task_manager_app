@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<body>
+	<img src="images/taskbkgd.jpg">
+	<nav class="navbar fixed-top navbar-expand-lg navbar-light bg light">
+		<a href="index.html"><img class="logo" src="images/task_logo.jpg" alt="Logo." /></a>
+		<h1 class="websiteh1">Task Management App</h1>
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="index.html">View Tasks</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" href="addtask.html">Add a Task</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="">Login</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="">Sign up</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<main class="taskapp_background">
+
+
+		<section id="add_task">
+
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-7">
+
+						<form method="post" action="/">
+							<h1 class="add_task_h1">Add a Task</h1>
+
+
+							{# <div class="form-group">
+								<label for="taskid">Task ID:</label>
+							</div> #}
+
+							<div class="form-group">
+								<label for="tasktitle-text-area">Title:</label>
+								<input type="text" class="form-control" id="tasktitle-text-area" placeholder="Please type TASK TITLE">
+							</div>
+
+							<div class="form-group">
+								<label for="description-text-area">Description:</label>
+								<input type="text" class="form-control" id="description-text-area" placeholder="Please type TASK DESCRIPTION">
+							</div>
+
+							{# <div class="form-group">
+								<label for="datecreated">Date created:</label>
+							</div> #}
+
+							<div class="form-group">
+								<label for="datedue-text-area" name="datedue" id="datedue-text-area">Date task due:</label>
+								<input type="text" class="form-control" id="datedue-text-area" placeholder="Please type DUE DATE">
+							</div>
+
+							<div class="form-group row">
+								<p class="col-sm-3">Priority:</p>
+								<div class="col-sm-9">
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" type="radio" name="priority-radio" id="priority-high-radio" value="high" checked="checked">
+										<label class="form-check-label" for="priority-high-radio">High</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" type="radio" name="priority-radio" id="priority-medium-radio" value="medium">
+										<label class="form-check-label" for="priority-medium-radio">Medium</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" type="radio" name="priority-radio" id="priority-low-radio" value="low">
+										<label class="form-check-label" for="priority-low-radio">Low</label>
+									</div>
+
+								</div>
+							</div>
+
+							<img class="bin float-right" src="images/bin_image.png" alt="Bin image to delete task." /></a>
+							<button type="submit" button class="savetask btn btn-primary btn-lg" value="Submit">Save Task</button>
+
+						</form>
+					</div>
+					{% endblock content %}
+
+				</div>
+			</div>
+			</div>
+		</section>
+
+
+
+		</div>
+		</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<a href="https://twitter.com/?lang=en-gb" class="btn btn-primary btn-sm btn-facebook">Twitter</a>
+					<a href="https://uk.linkedin.com/" class="btn btn-primary btn-sm btn-linkedin">LinkedIn</a>
+					<a href="https://en-gb.facebook.com/" class="btn btn-primary btn-sm btn-facebook">Facebook</a>
+					<p class="legalrights">All rights belong to Task Management App. &copy; 2019.</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -18,13 +18,15 @@ def home():
 
     if request.method == 'POST':
         form_data = request.form.to_dict()
-    #    db_api.add_task(form_data)
+#        db_api.add_task(form_data)
 
 
 #        description = form_data["description"]
 #        title = form_data["title"]
 #            due_date = form_data["due_date"]
 #            due_created = form_data["date_created"]
+        json_data = jsonify(form_data)
+        return json_data
 #        post_db_response = requests.post("http://127.0.0.1:5000/tasks", data=json_data)
 
 #        return jsonify({
@@ -44,38 +46,11 @@ def new_task():
 def tasks():
     if request.method == 'GET':
         dummy_api_data = db_api.select_all()
-#        [
-#    {"id":"0001",
-#    "title":"Take dog to the vets",
-#    "description":"Skye needs immunisations.",
-#    "date_created":"10-02-2019","date_due":"26-02-2019",
-#    "status":"to do",
-#    "priority":"high",},
-#    {"id":"0002",
-#    "title":"Get a hair cut",
-#    "description":"Book with the hairdresser's recommended by sister, she had a great experience.",
-#    "date_created":"12-02-2019",
-#    "date_due":"17-02-2019",
-#    "status":"to do",
-#    "priority":"medium",},
-#    {"id":"0003",
-#    "title":"Get milk",
-#    "description":"Book with the hairdresser's recommended by sister, she had a great experience.",
-#    "date_created":"12-02-2019",
-#    "date_due":"17-02-2019",
-#    "status":"to do",
-#    "priority":"medium",},
-#    {"id":"0001",
-#    "title":"Take dog to the vets",
-#    "description":"Skye needs immunisations.",
-#    "date_created":"10-02-2019","date_due":"26-02-2019",
-#    "status":"to do",
-#    "priority":"high",},
-#    ]
         return jsonify(dummy_api_data)
 
-    elif request.method == 'POST':
-        db_api.add_task(request)
+#    elif request.method == 'POST':
+#        db_api.add_task(request)
+
 
 
 if __name__ == "__main__":
