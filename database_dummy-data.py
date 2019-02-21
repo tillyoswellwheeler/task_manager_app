@@ -3,7 +3,7 @@
 #-----------------------------------
 
 import sqlite3
-import json
+
 
 ###---creating a database and cursor---###
 conn = sqlite3.connect('task_manager.db')
@@ -12,7 +12,7 @@ c = conn.cursor()
 def delete_table():
     c.execute('DROP TABLE tasks')
 
-# delete_table()
+delete_table()
 
 ###---Creating a table within the database with column names---###
 def create_table_tasks():
@@ -20,8 +20,8 @@ def create_table_tasks():
         'CREATE TABLE IF NOT EXISTS tasks(id INTEGER PRIMARY KEY, title TEXT , description TEXT, date_created TEXT, date_due TEXT, status TEXT, priority INT)')
 
 
-# create_table_tasks()
-#
+create_table_tasks()
+
 dummy_tasks = [{"title":"Take dog to the vets","description":"Skye needs immunisations.","date_created":"10-02-2019","date_due":"26-02-2019","status":"to do","priority":"high",},
 {"title":"Get a hair cut","description":"Book with the hairdresser's recommended by sister, she had a great experience.","date_created":"12-02-2019","date_due":"17-02-2019","status":"to do","priority":"medium",},
 {"title":"Take out bins","description":"It's your turn to take out the bins.","date_created":"16-02-2019","date_due":"18-02-2019","status":"done","priority":"low",},

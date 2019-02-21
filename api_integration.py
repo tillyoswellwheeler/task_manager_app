@@ -88,11 +88,11 @@ def add_task(request):
     conn.commit()
 #     conn.close()
 
-
-# request = [{"id":"1", "title":"TESTIOTRUGJ","description":"Skye needs immunisations.","date_due":"26-02-2019","status":"to do","priority":"high",}]
-# #
-# #
-# # add_task(request)
+#
+# request = [{"id":"1", "title":"Clean the car","description":"Buy cleaning products and get organised","date_due":"26-02-2019","status":"to do","priority":"high",}]
+# # #
+# # #
+# # # add_task(request)
 # update_task(request)
 
 # print(select_all())
