@@ -1,12 +1,17 @@
 /*********************NAVIGATION**************************/
 
 nav {
-  background-color: red;
+  background-color: rgba(71, 158, 178, 0.3);
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: white;
+  color:  #479eb2;
   text-align: center;
+  padding-bottom: 5px;
+}
+
+a.nav-link:active {
+color: #f2ec1c;
 }
 
 a.nav-link {
@@ -34,7 +39,7 @@ padding-left: 150px;
 
 /** image**/
 .addtask {
-padding-top: 100px;
+padding-top: 200px;
 padding-right: 20px;
 width: 100px;
 }
@@ -43,7 +48,7 @@ form {
   border: solid;
   border-width: thin;
   padding: 30px;
-  margin-top: 100px;
+  margin-top: 170px;
   margin-bottom: 100px;
   margin-left: 220px;
 }
@@ -70,7 +75,7 @@ padding-bottom: 5px;
 }
 
 .savetask{
-background-color: green;
+background-color: #479eb2;
 border: solid;
 color: white;
 font-size: 25px;
@@ -99,6 +104,15 @@ div.media-body {
 padding-top: 10px;
 }
 
+label.card-title {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+div.card-header{
+text-align: center;
+}
+
 div.card {
   border-width: 3px;
   margin-top: 5px;
@@ -123,7 +137,7 @@ p.card-description {
 }
 
 button.taskcomplete {
-  background-color: green;
+  background-color: #479eb2;
   border: solid;
   color: white;
   font-size: 25px;
@@ -148,7 +162,6 @@ button.taskcomplete {
   border: none;
 }
 
-
 .btn-twitter:hover {
   background-color: #60BDF6;
 }
@@ -167,13 +180,13 @@ button.taskcomplete {
 footer {
   padding-top: 10px;
   text-align: center;
-  background-color: red;
+  background-color: rgba(71, 158, 178, 0.3);
 }
 
 .legalrights {
 padding-top: 15px;
 font-size: 11px;
-color: white;
+color: black;
 }
 
 

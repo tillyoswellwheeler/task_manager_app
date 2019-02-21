@@ -3,10 +3,9 @@
 {% block content %}
 
 <body>
-	<img src="images/taskbkgd.jpg">
 	<nav class="navbar fixed-top navbar-expand-lg navbar-light bg light">
-		<a href="index.html"><img class="logo" src="images/task_logo.jpg" alt="Logo." /></a>
-		<h1 class="websiteh1">Task Management App</h1>
+		<a href="{{ url_for('home') }}"><img src="static/images/logo.png" alt='Logo.'/></a>
+		<h1 class="websiteh1">Task A Go</h1>
 
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -15,10 +14,10 @@
 		<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link" href="index.html">View Tasks</a>
+					<a class="nav-link" href="{{ url_for('home') }}">View Tasks</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link active" href="addtask.html">Add a Task</a>
+					<a class="nav-link active" href="{{ url_for('new_task') }}">Add a Task</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="">Login</a>
@@ -111,7 +110,7 @@
 					<a href="https://twitter.com/?lang=en-gb" class="btn btn-primary btn-sm btn-facebook">Twitter</a>
 					<a href="https://uk.linkedin.com/" class="btn btn-primary btn-sm btn-linkedin">LinkedIn</a>
 					<a href="https://en-gb.facebook.com/" class="btn btn-primary btn-sm btn-facebook">Facebook</a>
-					<p class="legalrights">All rights belong to Task Management App. &copy; 2019.</p>
+					<p class="legalrights">All rights belong to Task A Go. &copy; 2019.</p>
 				</div>
 			</div>
 		</div>
