@@ -25,9 +25,7 @@ def home():
         if 'find_task_submit' in request.form:
             find_task_data = request.form.to_dict()
             delete_task = db_api.move_task(find_task_data)
-    #        db_api_response = requests.get("http://127.0.0.1:5000/tasks")
-    #        api_data = db_api_response.json()
-    #        return render_template("home.html", title="Homepage", **locals())
+
 
         elif 'sort_submit' in request.form:
             if 'sort_radio' == "1": #priority
