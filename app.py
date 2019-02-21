@@ -25,10 +25,21 @@ def home():
         if 'find_task_submit' in request.form:
             find_task_data = request.form.to_dict()
             delete_task = db_api.delete_task(find_task_data)
-            db_api_response = requests.get("http://127.0.0.1:5000/tasks")
-            api_data = db_api_response.json()
-            return render_template("home.html", title="Homepage", **locals())
+    #        db_api_response = requests.get("http://127.0.0.1:5000/tasks")
+    #        api_data = db_api_response.json()
+    #        return render_template("home.html", title="Homepage", **locals())
 
+        elif 'sort_submit' in request.form:
+            if 'sort_radio' == "1": #priority
+                db_api_response = requests.get("http://127.0.0.1:5000/tasks")
+            elif 'sort_radio' == "2": #date
+                db_api_response = requests.get("http://127.0.0.1:5000/tasks")
+                api_data = []
+                for row in db_api_response:
+                    api_data.append({"id":row[0],"title":row[1],"description":row[2],"date_created":row[3],"date_due":row[4],"status":row[5],"priority":row[6]})
+                conn.close()
+                jsonify(api_data)
+                return render_template("home.html", title="Homepage", **locals())
         else:
             form_data = request.form.to_dict()
             db_api.add_task(form_data)
@@ -58,7 +69,7 @@ def new_task():
 @app.route("/tasks", methods=['GET', 'POST'])
 def tasks():
     if request.method == 'GET':
-        dummy_api_data = db_api.select_all()
+        dummy_api_data = db_api.select_all_priority()
         return jsonify(dummy_api_data)
 
 #    elif request.method == 'POST':

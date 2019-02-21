@@ -65,6 +65,7 @@
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="radio" name="sort-radio" id="sort-by-duedate-radio" value="2">
 					<label class="form-check-label" for="sort-by-duedate-radio">Due Date</label>
+						<button type="submit" name="sort_submit" button class="sort btn btn-primary btn-lg">Sort</button>
 				</div>
 			</div>
 		</div>
@@ -96,7 +97,7 @@
 										<input type="hidden" id="date_created" name="date_created" />
 										<p class="card-date-due" for="date_due">Due Date: {{ dict['date_due'] }}</p>
 										<input type="hidden" id="date_due" name="date_due" />
-										<p class="card-date-due" for="date_due">Priority: {{ dict['priority'] }}</p>
+										<p class="card-date-due" for="date_due">Priority: {{ dict['priority'][1:] }}</p>
 										<input type="hidden" id="date_due" name="date_due" />
 										<input type="hidden" id="id" name="id" value="{{ dict['id'] }}" />
 										<button type="submit" name="find_task_submit" button class="taskcomplete btn btn-primary btn-lg">Task Complete</button>

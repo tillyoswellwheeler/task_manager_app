@@ -57,18 +57,38 @@ def update_task(request):
     description = request['description']
     date_due = request['date_due']
     priority = request['priority-radio']
-    c.execute('UPDATE tasks SET title = ?, description = ?, date_due = ?, priority = ? WHERE id = ?', (title, description, date_due, priority, task_id))
+    c.execute('UPDATE tasks SET title = ?, description = ?, date_due = ?, priority = ? WHERE id = ?', (title, description, date_due, priority, task_id,))
     conn.commit()
 
 def delete_task(request):
     conn, c = get_db()
     task_id = request['id']
-    c.execute('DELETE FROM tasks WHERE id = ?', (task_id))
+    c.execute('DELETE FROM tasks WHERE id = ?', (task_id,))
     conn.commit()
 
 def select_all():
     conn, c = get_db()
     query = "SELECT * FROM tasks"
+    results = c.execute(query)
+    tasks = []
+    for row in results:
+        tasks.append({"id":row[0],"title":row[1],"description":row[2],"date_created":row[3],"date_due":row[4],"status":row[5],"priority":row[6]})
+    conn.close()
+    return tasks
+
+def select_all_priority():
+    conn, c = get_db()
+    query = "SELECT * FROM tasks ORDER BY priority DESC"
+    results = c.execute(query)
+    tasks = []
+    for row in results:
+        tasks.append({"id":row[0],"title":row[1],"description":row[2],"date_created":row[3],"date_due":row[4],"status":row[5],"priority":row[6]})
+    conn.close()
+    return tasks
+
+def select_all_date():
+    conn, c = get_db()
+    query = "SELECT * FROM tasks ORDER BY date_due"
     results = c.execute(query)
     tasks = []
     for row in results:
