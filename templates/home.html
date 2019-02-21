@@ -68,32 +68,43 @@
 				</div>
 			</div>
 		</div>
-<p>
-	 form data: {{ form_data }}
-	</p>
+
 		<section id="tasks_display">
 			<div class="container">
+<p id="api-resp">
 
+	</p>
 				<div class="scrolling-cards">
 					<ul id="cards-unstyled">
 
 						<div class="row">
 							{% for dict in api_data %}
+
 							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+
 								<div class="card">
 									<div class="card-body">
+										<form class="home_form" method="post" action="/">
 										<div class="card-header">
-											<h5 class="card-title">Title: {{ dict['title'] }}</h5>
+											<label class="card-title" for="title">Title: {{ dict['title'] }}</label>
+											<input type="hidden" id="title" name="title" />
+
 										</div>
-										<p class="card-description">Description. {{ dict['description'] }}.</p>
-										<p class="card-date-created">Date created: {{ dict['date_created'] }}</p>
-										<p class="card-date-due">Due Date: {{ dict['date_due'] }}</p>
-										<button type="button" button class="taskcomplete btn btn-primary btn-lg">Task Complete</button>
+										<label class="card-description" for="description">Description. {{ dict['description'] }}.</label>
+										<input type="hidden" id="description" name="description" />
+										<p class="card-date-created" for="date_created">Date created: {{ dict['date_created'] }}</p>
+										<input type="hidden" id="date_created" name="date_created" />
+										<p class="card-date-due" for="date_due">Due Date: {{ dict['date_due'] }}</p>
+										<input type="hidden" id="date_due" name="date_due" />
+										<input type="hidden" id="id" name="id" value="{{ dict['id'] }}" />
+										<button type="submit" name="find_task_submit" button class="taskcomplete btn btn-primary btn-lg">Task Complete</button>
 										<a href=""><img class="pencil float-right" src="static/images/pencil_image.png" alt="Pencil image to edit task." /></a>
+</form>
 									</div>
 								</div>
 
 							</div>
+
 							{% endfor %}
 					</ul>
 				</div>
@@ -101,4 +112,33 @@
 			</div>
 		</section>
 	</main>
+	<script>
+	console.log("starting javascript")
+	let url = 'http://127.0.0.1:5000/tasks';
+
+	get_api_data = function httpGet()
+	{
+	  var xmlHttp = new XMLHttpRequest();
+	  xmlHttp.open("GET", 'http://127.0.0.1:5000/tasks', false);
+	  xmlHttp.send(null);
+		console.log(xmlHttp)
+	  return JSON.parse(xmlHttp.response);
+	};
+
+	response = get_api_data()
+
+	console.log(response);
+	console.log("resp 0 ", response[0])
+	var formatted_tasks = []
+	console.log("starting for loop")
+	for (var i = 0; i < response.length; i++){
+		console.log(response[i])
+		description = response[i]["description"]
+		console.log(description)
+		formatted_tasks.push(description + "<br />")
+
+	}
+
+	document.getElementById("api-resp").innerHTML = formatted_tasks
+	</script>
 	{% endblock content %}

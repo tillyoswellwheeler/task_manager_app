@@ -3,9 +3,11 @@ import requests
 import api_integration as db_api
 import datetime
 import sqlite3
+from flask_cors import CORS
 
 
 app = Flask(__name__)
+cors = CORS(app)
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
@@ -16,18 +18,29 @@ def home():
     #        print('Postcode not recognized!')
         return render_template("home.html", title="Homepage", **locals())
 
+
+
+
     if request.method == 'POST':
-        form_data = request.form.to_dict()
-#        db_api.add_task(form_data)
+        if 'find_task_submit' in request.form:
+            find_task_data = request.form.to_dict()
+            delete_task = db_api.delete_task(find_task_data)
+            db_api_response = requests.get("http://127.0.0.1:5000/tasks")
+            api_data = db_api_response.json()
+            return render_template("home.html", title="Homepage", **locals())
+
+        else:
+            form_data = request.form.to_dict()
+            db_api.add_task(form_data)
 
 
 #        description = form_data["description"]
 #        title = form_data["title"]
 #            due_date = form_data["due_date"]
 #            due_created = form_data["date_created"]
-        json_data = jsonify(form_data)
-        return json_data
-#        post_db_response = requests.post("http://127.0.0.1:5000/tasks", data=json_data)
+#        json_data = jsonify(form_data)
+#        return json_data
+#        post_db_response = requests.post("http://127.0.0.1:5000/tasks", data = json_data)
 
 #        return jsonify({
 #        'json_data': post_db_response
@@ -49,7 +62,7 @@ def tasks():
         return jsonify(dummy_api_data)
 
 #    elif request.method == 'POST':
-#        db_api.add_task(request)
+#        db_api.add_task(post_db_response)
 
 
 

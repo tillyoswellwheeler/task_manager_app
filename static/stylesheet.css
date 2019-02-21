@@ -48,6 +48,15 @@ form {
   margin-left: 220px;
 }
 
+form.home_form {
+border: none;
+border-width: thin;
+padding: 0px;
+margin-top: 0px;
+margin-bottom: 0px;
+margin-left: 0px;
+}
+
 h1.add_task_h1 {
 font-size: 30px;
 padding-left: 180px;
