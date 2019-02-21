@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="855c528f-5c2d-474e-ac93-cd5a9a40ddff" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api_integration.py" beforeDir="false" afterPath="$PROJECT_DIR$/api_integration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new_task.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/new_task.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/new_task.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_dummy-data.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_dummy-data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task_manager.db" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager.db" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,23 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database_dummy-data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="24" column="177" selection-start-line="24" selection-end-line="24" selection-end-column="177" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api_integration.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
-              <caret line="66" column="8" lean-forward="true" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
-              <folding>
-                <element signature="e#128#139#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="165">
+              <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -39,7 +26,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/new_task.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
+            <state relative-caret-position="1050">
               <caret line="70" column="153" selection-start-line="70" selection-start-column="153" selection-end-line="70" selection-end-column="153" />
             </state>
           </provider>
@@ -51,6 +38,18 @@
             <state>
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/api_integration.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="206">
+              <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="96" />
+              <folding>
+                <element signature="e#128#139#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -73,9 +72,9 @@
       <list>
         <option value="$PROJECT_DIR$/database_setup.py" />
         <option value="$PROJECT_DIR$/database_connect.py" />
+        <option value="$PROJECT_DIR$/templates/new_task.html" />
         <option value="$PROJECT_DIR$/database_dummy-data.py" />
         <option value="$PROJECT_DIR$/api_integration.py" />
-        <option value="$PROJECT_DIR$/templates/new_task.html" />
       </list>
     </option>
   </component>
@@ -125,7 +124,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.api_integration">
+  <component name="RunManager" selected="Python.database_dummy-data">
     <configuration name="api_integration" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="task_app" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -191,8 +190,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.api_integration" />
         <item itemvalue="Python.database_dummy-data" />
+        <item itemvalue="Python.api_integration" />
         <item itemvalue="Python.database_connect" />
       </list>
     </recent_temporary>
@@ -214,12 +213,12 @@
     <frame x="48" y="24" width="1392" height="783" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24945295" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24945295" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3299566" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3299566" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3299566" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -250,15 +249,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_task.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-323" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/new_task.html" />
     <entry file="file://$PROJECT_DIR$/templates/new_task.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
+        <state relative-caret-position="1050">
           <caret line="70" column="153" selection-start-line="70" selection-start-column="153" selection-end-line="70" selection-end-column="153" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database_dummy-data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -273,18 +275,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api_integration.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="66" column="8" lean-forward="true" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
+        <state relative-caret-position="206">
+          <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="96" />
           <folding>
             <element signature="e#128#139#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database_dummy-data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="24" column="177" selection-start-line="24" selection-end-line="24" selection-end-column="177" />
         </state>
       </provider>
     </entry>
