@@ -24,7 +24,7 @@ def home():
     if request.method == 'POST':
         if 'find_task_submit' in request.form:
             find_task_data = request.form.to_dict()
-            delete_task = db_api.delete_task(find_task_data)
+            delete_task = db_api.move_task(find_task_data)
     #        db_api_response = requests.get("http://127.0.0.1:5000/tasks")
     #        api_data = db_api_response.json()
     #        return render_template("home.html", title="Homepage", **locals())
@@ -34,10 +34,12 @@ def home():
                 db_api_response = requests.get("http://127.0.0.1:5000/tasks")
             elif 'sort_radio' == "2": #date
                 db_api_response = requests.get("http://127.0.0.1:5000/tasks")
+                print(db_api_response)
                 api_data = []
                 for row in db_api_response:
                     api_data.append({"id":row[0],"title":row[1],"description":row[2],"date_created":row[3],"date_due":row[4],"status":row[5],"priority":row[6]})
                 conn.close()
+                print(api_data)
                 jsonify(api_data)
                 return render_template("home.html", title="Homepage", **locals())
         else:
@@ -45,10 +47,6 @@ def home():
             db_api.add_task(form_data)
 
 
-#        description = form_data["description"]
-#        title = form_data["title"]
-#            due_date = form_data["due_date"]
-#            due_created = form_data["date_created"]
 #        json_data = jsonify(form_data)
 #        return json_data
 #        post_db_response = requests.post("http://127.0.0.1:5000/tasks", data = json_data)
@@ -74,6 +72,11 @@ def tasks():
 
 #    elif request.method == 'POST':
 #        db_api.add_task(post_db_response)
+
+@app.route("/completed_tasks")
+def completed_tasks():
+    api_data = db_api.select_all_done()
+    return render_template("completed_tasks.html", title="Completed Tasks", **locals())
 
 
 
