@@ -75,7 +75,10 @@ def tasks():
 #    elif request.method == 'POST':
 #        db_api.add_task(post_db_response)
 
-
+@app.route("/completed_tasks")
+def completed_tasks():
+    api_data = db_api.select_all_done()
+    return render_template("completed_tasks.html", title="Completed Tasks", **locals())
 
 if __name__ == "__main__":
     app.run(debug = True)

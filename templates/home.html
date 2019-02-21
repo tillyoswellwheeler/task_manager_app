@@ -16,6 +16,9 @@
 					<a class="nav-link active" href="{{ url_for('home') }}">View Tasks</a>
 				</li>
 				<li class="nav-item">
+					<a class="nav-link" href="{{ url_for('completed_tasks') }}">Completed Tasks</a>
+				</li>
+				<li class="nav-item">
 					<a class="nav-link" href="http://127.0.0.1:5000/new_task">Add a Task</a>
 				</li>
 				<li class="nav-item">
@@ -69,9 +72,7 @@
 
 		<section id="tasks_display">
 			<div class="container">
-<p id="api-resp">
 
-	</p>
 				<div class="scrolling-cards">
 					<ul id="cards-unstyled">
 
