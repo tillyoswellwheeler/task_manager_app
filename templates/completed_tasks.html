@@ -13,13 +13,13 @@
 		<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link active" href="{{ url_for('home') }}">View Tasks</a>
+					<a class="nav-link" href="{{ url_for('home') }}">View Tasks</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="{{ url_for('completed_tasks') }}">Completed Tasks</a>
+					<a class="nav-link active" href="{{ url_for('completed_tasks') }}">Completed Tasks</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="http://127.0.0.1:5000/new_task">Add a Task</a>
+					<a class="nav-link" href="http://127.0.0.1:5000/new_task">Add Task</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="">Login</a>
@@ -85,7 +85,10 @@
 										<input type="hidden" id="date_due" name="date_due" />
 										<input type="hidden" id="id" name="id" value="{{ dict['id'] }}" />
 										<button type="submit" name="find_task_submit" button class="taskcomplete btn btn-primary btn-lg">Task Complete</button>
-																	<img class="bin float-right" src="static/images/bin_image.png" alt="Bin image to delete task."/>
+										<form method="post" action="/">
+										<input type="hidden" id="id" name="id" value="{{ dict['id'] }}" />
+										<button id="bin-picture" type="submit" name="delete_submit" class="bin float-right" alt="Bin image to delete task."</button>
+																	</form>
 </form>
 									</div>
 								</div>

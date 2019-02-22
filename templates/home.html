@@ -19,7 +19,7 @@
 					<a class="nav-link" href="{{ url_for('completed_tasks') }}">Completed Tasks</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="http://127.0.0.1:5000/new_task">Add a Task</a>
+					<a class="nav-link" href="http://127.0.0.1:5000/new_task">Add Task</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="">Login</a>
@@ -56,7 +56,7 @@
 		</section>
 
 
-		<div class="sortby row">
+<!--		<div class="sortby row">
 			<p class="col-sm-1 col-md-1 col-lg-1 col-xl-1">Sort by:</p>
 			<div class="col-sm-9 col-md-9 col-lg-9 col-xl-9">
 				<div class="form-check form-check-inline">
@@ -68,7 +68,7 @@
 					<label class="form-check-label" for="sort-by-duedate-radio">Due Date</label>
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 		<section id="tasks_display">
 			<div class="container">
@@ -95,11 +95,14 @@
 										<input type="hidden" id="date_created" name="date_created" />
 										<p class="card-date-due" for="date_due">Due Date: {{ dict['date_due'] }}</p>
 										<input type="hidden" id="date_due" name="date_due" />
-										<p class="card-date-due" for="date_due">Priority: {{ dict['priority'] }}</p>
+										<p class="card-date-due" for="date_due">Priority: {{ dict['priority'][1:] }}</p>
 										<input type="hidden" id="date_due" name="date_due" />
 										<input type="hidden" id="id" name="id" value="{{ dict['id'] }}" />
 										<button type="submit" name="find_task_submit" button class="taskcomplete btn btn-primary btn-lg">Task Complete</button>
-																	<img class="bin float-right" src="static/images/bin_image.png" alt="Bin image to delete task."/>
+										<form method="post" action="/">
+										<input type="hidden" id="id" name="id" value="{{ dict['id'] }}" />
+										<button id="bin-picture" type="submit" name="delete_submit" class="bin float-right" alt="Bin image to delete task."</button>
+																	</form>
 </form>
 									</div>
 								</div>

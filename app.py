@@ -24,8 +24,14 @@ def home():
     if request.method == 'POST':
         if 'find_task_submit' in request.form:
             find_task_data = request.form.to_dict()
-            delete_task = db_api.move_task(find_task_data)
+            move_task = db_api.move_task(find_task_data)
 
+        elif 'delete_submit' in request.form:
+            task_to_delete = request.form.to_dict()
+            db_api.delete_task(task_to_delete)
+            db_api_response = requests.get("http://127.0.0.1:5000/tasks")
+            api_data = db_api_response.json()
+            return render_template("home.html", title="Homepage", **locals())
 
         elif 'sort_submit' in request.form:
             if 'sort_radio' == "1": #priority
@@ -69,7 +75,7 @@ def new_task():
 @app.route("/tasks", methods=['GET', 'POST'])
 def tasks():
     if request.method == 'GET':
-        dummy_api_data = db_api.select_all()
+        dummy_api_data = db_api.select_all_priority()
         return jsonify(dummy_api_data)
 
 #    elif request.method == 'POST':

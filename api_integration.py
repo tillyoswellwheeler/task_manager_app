@@ -117,6 +117,11 @@ def add_task(request):
     c.execute("INSERT INTO `tasks` (`title`, `description`, 'date_created', 'date_due', 'priority') VALUES ( ?, ?, ?, ?, ?)",(title, description, date_created, date_due,priority))
     conn.commit()
 
+def delete_task(request):
+    conn, c = get_db()
+    task_id = request['id']
+    c.execute('DELETE FROM tasks WHERE id = ?', (task_id))
+    conn.commit()
 #
 # request = [{"id":"1", "title":"Clean the car","description":"Buy cleaning products and get organised","date_due":"26-02-2019","status":"to do","priority":"high",}]
 # # #

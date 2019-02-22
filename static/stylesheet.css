@@ -145,6 +145,15 @@ button.taskcomplete {
   border-radius: 10px;
 }
 
+#bin-picture {
+  background: url("../static/images/bin_image.png") no-repeat scroll 0 0 transparent;
+  cursor: pointer;
+  height: 70px;
+  width: 50px;
+  padding: 2px;
+  border: none;
+}
+
 
 /*********************SOCIAL BUTTONS****************************/
 .btn-twitter {
